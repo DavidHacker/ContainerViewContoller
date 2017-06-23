@@ -13,7 +13,7 @@
 
 //#define leftSideWidth 0.7 * self.view.frame.size.width
 
-static CGFloat animationDuration = 0.5;
+static CGFloat animationDuration = 0.3;
 static CGFloat leftSideWidth = 300;
 
 @interface ContainerViewController ()

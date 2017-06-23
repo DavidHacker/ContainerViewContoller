@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "ContainerViewController.h"
+#import "LeftSideViewController.h"
+#import "CenterViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +20,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    UINavigationController *centerNav = [storyboard instantiateViewControllerWithIdentifier:@"centerNav"];
+    LeftSideViewController *leftSideVc = [storyboard instantiateViewControllerWithIdentifier:@"leftSideVc"];
+    ContainerViewController *containerVc = [[ContainerViewController alloc] initWithLeftSideVc:leftSideVc centerVc:centerNav];
+    
+    self.window.rootViewController = containerVc;
+    
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
